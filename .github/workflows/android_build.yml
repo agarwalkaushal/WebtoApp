@@ -5,6 +5,9 @@ on:
   release:
     types: [published] # only run the workflow when a new release has been published
 
+env:
+  REACT_APP_BASE_URL: https://thebuddhistshop.com/
+
 jobs:
   android-build:
     name: Android Build
@@ -51,6 +54,12 @@ jobs:
       - name: Make Gradlew Executable
         run: cd android && chmod +x ./gradlew
 
-      - name: Generate App APK
+      - name: Generate APK
         run: |
           cd android && ./gradlew assembleDebug --no-daemon
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v1
+        with:
+          name: apk
+          path: app/build/outputs/apk/debug/app-debug.apk 
