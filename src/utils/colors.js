@@ -1,0 +1,7 @@
+export const COLORS = {
+    PRIMARY_DARK: '#344542',
+    PRIMARY_LIGHT: '#3A562C',
+    SECONDARY_DARK: '#D49464',
+    SECONDARY_LIGHT: '#FFE5BD',
+    LINK: '#2298DA',
+}
