@@ -58,8 +58,7 @@ jobs:
         run: |
           cd android && ./gradlew assembleDebug --no-daemon
 
-      - name: Upload APK
-        uses: actions/upload-artifact@v1
-        with:
-          name: apk
-          path: android/app/build/outputs/apk/app-universal-debug.apk
+      - name: List apk dir
+        run: find . -iregex '.*\.\(apk\)' -printf '%f\n'
+      
+
